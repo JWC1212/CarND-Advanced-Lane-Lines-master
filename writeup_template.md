@@ -128,3 +128,5 @@ Here's a [link to my video result](./project_video.mp4)
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+
+At first I just used sobel x combined with S-channel to get a binary image which made obvious failure in some situations that road surface is bad, shadow covers lane lines, unclear lane lines etc. Then I tried to add H channel to extract yellow lane line with appropriate threshold. This addition increase the detection accuracy in facing the situations I mentioned above.
