@@ -58,6 +58,8 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
 ![alt text][image2]
 
+I wrote a function "undistortImage" which takes original image, object points and image points from previous step at 2nd Cell in example.ipynb. This function returns an undistorted image.
+
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
 A distortion-corrected image was firstly transformed to grayscale. Then I used Sobel Operator to get x-direction gradient with threshold(20, 100). At this moment I got a binary image.
