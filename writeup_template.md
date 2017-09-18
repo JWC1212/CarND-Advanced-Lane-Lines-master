@@ -91,7 +91,11 @@ I verified that my perspective transform was working as expected by drawing the 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+The warped image was transformed to grayscale. Applying color and gradient thresholds above to this warped grayscale I generated a binary warped image. This warped grayscale was divided into left and right part at middle point. I calculated the max value of each part along x position and got the x position of max value. This x position was used as starting point of lane lines.
+
+Then sliding windows were used to find all nonzero value pixels in the windows. The pixels' x and y values were passed to fit the lane lines using quadratic function: f(x) = A*y*y + B*y + C. After polynomial fitting A, B and C were obtained.
+
+A, B and C coefficients were again used to each y position to calculate corresponding x position. In this way the lane lines were generated.
 
 ![alt text][image5]
 
