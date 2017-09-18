@@ -21,10 +21,10 @@ The goals / steps of this project are the following:
 
 [image1]: ./output_images/undistorted.png "Undistorted"
 [image2]: ./test_images/test5.jpg "Road Transformed"
-[image3]: ./output_images/binary_combo_example.jpg "Binary Example"
-[image4]: ./output_images/warped_straight_lines.jpg "Warp Example"
-[image5]: ./output_images/color_fit_lines.jpg "Fit Visual"
-[image6]: ./output_images/example_output.jpg "Output"
+[image3]: ./output_images/binary_combo_example.png "Binary Example"
+[image4]: ./output_images/warped_straight_lines.png "Warp Example"
+[image5]: ./output_images/color_fit_lines.png "Fit Visual"
+[image6]: ./output_images/example_output.png "Output"
 [video1]: ./output_images/project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -101,11 +101,15 @@ A, B and C coefficients were again used to each y position to calculate correspo
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I did this in code cell 7 through 8 in my code in `example.ipynb`. 
+
+The function calc_Curverad() takes fit coefficients A, B and chosen max y value(in this project is 719) from above step to calculate curvature using formula: ((1 + (2*A*y +B)**2)**1.5) / |2*A|
+
+In order to converse curve rad to distance(meter) from center function converse_CurveradToMeter() was used, which takes fitting lane lines' x positions and meters per pixel, max y value to get distance.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I implemented this step in code cell 18 in my code in `example.ipynb` in the function `process_image()`.  Here is an example of my result on a test image:
 
 ![alt text][image6]
 
