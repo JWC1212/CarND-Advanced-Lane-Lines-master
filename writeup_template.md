@@ -62,11 +62,13 @@ I wrote a function "undistortImage" which takes original image, object points an
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-A distortion-corrected image was firstly transformed to grayscale. Then I used Sobel Operator to get x-direction gradient with threshold(20, 100). At this moment I got a binary image.
+A distortion-corrected image was firstly transformed to grayscale. 
 
-To use color thresholds, I transfered the distortion-corrected image from RGB space to HLS space. Then I extracted S channel and H channel. Color threshold (170, 255) was used to S channel to get a binary image. 
+Then I used Sobel Operator to get x-direction gradient. This sobel-x was then preprocessed as absolute. After that it was scaled again. With threshold(20, 100) scaled sobel-x was changed to a binary image.
 
-After get both binary images I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+To use color thresholds, I transfered the distortion-corrected image from RGB space to HLS space. Then I extracted S channel and H channel. Color threshold (170, 255) was used to S channel and (70, 100) to H channel. Then these two binary images were combined to generate a binary image of color. 
+
+After get both binary images of color and gradient, I again combined them to generate a binary image (thresholding steps through 5th code cell to 7th code cell in `example.ipynb`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
 ![alt text][image3]
 
